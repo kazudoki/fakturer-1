@@ -47,15 +47,10 @@ function towarFormToObject() {
         id: document.getElementById('towar-id').value,
         nazwa: document.getElementById('towar-nazwa').value,
         pkwiu: document.getElementById('towar-pkwiu').value,
-        jednostkaMiary: towarGetJednostkaMiary(),
+        jednostkaMiary: list.options[document.getElementById("towar-jednostka-miary-select").selectedIndex].value,
         vat: document.getElementById('towar-vat').value,
         cenaNetto: document.getElementById('towar-cena-netto').value
     }
-}
-
-function towarGetJednostkaMiary() {
-    var list = document.getElementById("towar-jednostka-miary-select");
-    return list.options[list.selectedIndex].value;
 }
 
 function towarObjectToForm(data) {
@@ -95,6 +90,11 @@ function populateJednostkaMiarySelect() {
             modelList.options.add(option);
         }
     }
+}
+
+function towarChangeJednostkaMiary() {
+    var list = document.getElementById("towar-jednostka-miary-select");
+    var selected = list.options[list.selectedIndex].value;
 }
 
 // ----------------------- KOMUNIKACJA -----------------------------
